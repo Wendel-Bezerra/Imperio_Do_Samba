@@ -817,10 +817,8 @@ a {
   font-size: 30px;
   color: var(--ouro);
 }
-.time {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.headliner__handle {
+  align-self: flex-start;
   font-size: 15px;
 }
 
@@ -877,10 +875,6 @@ a {
   font-size: 15px;
   align-self: flex-start;
 }
-.guest__time {
-  font-size: 14px;
-}
-
 /* Letreiro */
 .marquee {
   margin-top: 96px;
@@ -1658,7 +1652,7 @@ a {
   .headliner__extra {
     font-size: 26px;
   }
-  .time {
+  .headliner__handle {
     font-size: 14px;
   }
   .guests {
@@ -1685,9 +1679,6 @@ a {
   }
   .guest a {
     font-size: 14px;
-  }
-  .guest__time {
-    font-size: 13px;
   }
 
   .marquee {

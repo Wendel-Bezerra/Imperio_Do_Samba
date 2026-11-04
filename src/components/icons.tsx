@@ -18,15 +18,6 @@ export function PinIcon({ size = 18, color = "var(--ouro)" }: P) {
   );
 }
 
-export function ClockIcon({ size = 18, color = "var(--ouro)" }: P) {
-  return (
-    <svg {...base(size)} stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 7v5l3 2" />
-    </svg>
-  );
-}
-
 export function ArrowIcon({ size = 20 }: P) {
   return (
     <svg {...base(size)} className="btn-arrow" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

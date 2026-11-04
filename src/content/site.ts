@@ -1,5 +1,4 @@
 // Todo o conteúdo editável do site num lugar só.
-// Campos vazios ("") ainda dependem do cliente e ficam ocultos no site até serem preenchidos.
 
 export const site = {
   name: "Império do Samba",
@@ -24,9 +23,8 @@ export const site = {
     // Abertura (alvo da contagem) e fim do último dia, no fuso de Salvador.
     start: "2026-11-06T16:30:00-03:00",
     end: "2026-11-09T00:00:00-03:00",
-    place: "Jardim dos Namorados",
+    place: "Vila Jardim dos Namorados",
     city: "Salvador",
-    address: "", // ex.: "Av. Oceânica, 123 – Ondina"
     // Janelas de funcionamento, usadas pela contagem durante o evento.
     sessions: [
       { open: "2026-11-06T16:30:00-03:00", close: "2026-11-07T02:00:00-03:00", opens: "16h30", closes: "02h" },
@@ -55,19 +53,19 @@ export const site = {
     kicker: "Sexta-feira · 06 de novembro",
     kickerShort: "Sexta · 06 de novembro",
     title: "A noite de abertura do Império",
-    text: "Portas abertas às 16h30. Roda de samba até tarde e after para fechar a primeira noite da casa.",
+    text: "Portas abertas às 16h30. Mesa de samba até tarde e after para fechar a primeira noite da casa.",
     headliner: {
       name: "Renanzinho CBX",
       extra: "e convidados",
-      time: "", // ex.: "Show às 20h"
+      handle: "renanzinhocbx",
+      url: "https://www.instagram.com/renanzinhocbx/",
     },
     guests: [
       {
-        role: "Convidado",
+        role: "Atração principal",
         name: "Gela Samba",
         handle: "gelasamba",
         url: "https://www.instagram.com/gelasamba/",
-        time: "",
         img: "/assets/opt/gelasamba-335.webp",
         alt: "Gela Samba ao vivo",
         position: "center 35%",
@@ -78,7 +76,6 @@ export const site = {
         name: "Boma",
         handle: "djboma071",
         url: "https://www.instagram.com/djboma071/",
-        time: "",
         img: "/assets/opt/boma-366.webp",
         alt: "DJ Boma",
         position: "center top",
@@ -87,12 +84,12 @@ export const site = {
     ],
   },
 
-  marquee: ["Samba", "Cerveja gelada", "Petisco", "Roda", "Salvador", "Império do Samba"],
+  marquee: ["Samba", "Cerveja gelada", "Petisco", "Mesa de samba", "Happy hour", "Salvador", "Império do Samba"],
 
   imperio: {
-    kicker: "Samba & cerveja",
+    kicker: "A casa de happy hour da cidade",
     title: "Samba bom pede cerveja Império trincando",
-    text: "Copo suado, petisco de boteco e a roda tocando do lado. A casa foi pensada para o samba e a cerveja dividirem o mesmo palco.",
+    text: "Copo suado, petisco de boteco e a mesa de samba tocando do lado. A casa foi pensada para o samba e a cerveja dividirem o mesmo palco.",
     chips: ["Cerveja Império", "Drinks da casa", "Petiscos de boteco"],
     gallery: [
       { img: "copo-cerveja", widths: [300, 520, 900], sizes: "(max-width: 767px) 50vw, 240px", alt: "Copo de cerveja Império", caption: "A gelada da casa" },
@@ -104,7 +101,7 @@ export const site = {
   social: {
     kicker: "Acompanha a gente",
     title: "O Império nas redes",
-    text: "Bastidores da montagem, line-up de cada fim de semana e os melhores momentos da roda. Tudo primeiro no Instagram.",
+    text: "Bastidores da montagem, line-up de cada fim de semana e os melhores momentos da mesa de samba. Tudo primeiro no Instagram.",
   },
 
   reels: [
@@ -124,7 +121,7 @@ export const site = {
       src: "/assets/reels/reel-03-convite-orla.mp4",
       poster: "/assets/opt/reel-03-poster-540.webp",
       alt: "Reel: convite gravado na orla de Salvador",
-      caption: "O recado tá dado: o Império do Samba abre no Jardim dos Namorados.",
+      caption: "O recado tá dado: o Império do Samba abre na Vila Jardim dos Namorados.",
     },
     {
       src: "/assets/reels/reel-04-convite-painel.mp4",
@@ -140,7 +137,7 @@ export const site = {
   meta: {
     title: "Império do Samba · Soft Open 06 a 08/11 · Salvador",
     description:
-      "O novo point do samba em Salvador. Soft Open de 06 a 08 de novembro no Jardim dos Namorados, com Renanzinho CBX e convidados, Gela Samba e after com Boma.",
+      "A casa de happy hour da cidade. Soft Open de 06 a 08 de novembro na Vila Jardim dos Namorados, com Renanzinho CBX, Gela Samba e after com Boma.",
   },
 } as const;
 

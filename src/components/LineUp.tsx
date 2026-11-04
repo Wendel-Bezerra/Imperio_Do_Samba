@@ -1,6 +1,5 @@
 import { site } from "@/content/site";
 import { opt } from "@/lib/img";
-import { ClockIcon } from "./icons";
 
 export default function LineUp() {
   const { lineup } = site;
@@ -37,12 +36,9 @@ export default function LineUp() {
             <h3>{headliner.name}</h3>
             <div className="headliner__meta">
               <p className="headliner__extra">{headliner.extra}</p>
-              {headliner.time !== "" && (
-                <span className="time">
-                  <ClockIcon />
-                  {headliner.time}
-                </span>
-              )}
+              <a className="headliner__handle" href={headliner.url} target="_blank" rel="noopener noreferrer">
+                @{headliner.handle}
+              </a>
             </div>
           </div>
         </article>
@@ -57,7 +53,6 @@ export default function LineUp() {
                 <a href={g.url} target="_blank" rel="noopener noreferrer">
                   @{g.handle}
                 </a>
-                {g.time !== "" && <span className="guest__time">{g.time}</span>}
               </div>
             </article>
           ))}

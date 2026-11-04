@@ -13,10 +13,7 @@ export default function Footer() {
         <div className="footer__col">
           <span className="footer__label">Onde</span>
           <span>{event.place}</span>
-          <span>
-            {event.address !== "" && `${event.address} · `}
-            {event.city} – BA
-          </span>
+          <span>{event.city} – BA</span>
         </div>
         <div className="footer__col">
           <span className="footer__label">Soft Open · {event.datesShort}</span>
