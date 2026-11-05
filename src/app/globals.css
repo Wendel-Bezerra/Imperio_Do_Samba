@@ -725,67 +725,6 @@ a {
   margin-top: 10px;
   color: var(--marrom);
 }
-.kicker-short {
-  display: none;
-}
-.lineup__cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  align-items: stretch;
-}
-.headliner {
-  flex: 2 1 520px;
-  min-width: 0;
-  position: relative;
-  min-height: 460px;
-  border-radius: 28px;
-  overflow: hidden;
-  background: var(--verde-noite);
-  color: var(--creme);
-  display: flex;
-}
-.headliner__bar {
-  position: absolute;
-  inset: 0;
-  background: url(/assets/opt/bar-ambiente-800.webp) center / cover;
-  opacity: 0.85;
-}
-.headliner__bokeh {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.8;
-}
-.headliner__veil {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(13, 35, 24, 0.96) 0%, rgba(13, 35, 24, 0.8) 38%, rgba(13, 35, 24, 0.25) 100%);
-}
-.headliner__fade {
-  display: none;
-}
-.headliner__img {
-  position: absolute;
-  right: -10px;
-  bottom: 0;
-  height: 100%;
-  width: auto;
-  max-width: 62%;
-  object-fit: cover;
-  object-position: top;
-}
-.headliner__body {
-  position: relative;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 12px;
-  max-width: 360px;
-}
 .chip-gold {
   align-self: flex-start;
   padding: 6px 14px;
@@ -797,84 +736,103 @@ a {
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
-.headliner h3 {
+.days {
+  list-style: none;
   margin: 0;
-  font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 52px;
-  font-weight: 900;
-  line-height: 0.95;
-}
-.headliner__meta {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.headliner__extra {
-  margin: 0;
-  font-family: var(--font-fraunces-italic), Georgia, serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: 30px;
-  color: var(--ouro);
-}
-.headliner__handle {
-  align-self: flex-start;
-  font-size: 15px;
-}
-
-.guests {
-  flex: 1 1 340px;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
-.guest {
-  flex: 1 1 auto;
-  border-radius: 28px;
-  overflow: hidden;
-  color: var(--creme);
-  display: flex;
-  min-height: 218px;
+.days:focus-visible {
+  outline-offset: 6px;
 }
-.guest--verde {
-  background: var(--verde);
-}
-.guest--marrom {
-  background: var(--marrom);
-}
-.guest img {
-  flex: 0 0 180px;
-  width: 180px;
-  align-self: stretch;
-  object-fit: cover;
-}
-.guest__body {
-  padding: 26px;
+.day {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  min-width: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  background: var(--verde-noite);
+  color: var(--creme);
 }
-.guest__role {
-  font-size: 12px;
+.day__poster {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1104 / 1440;
+  object-fit: cover;
+}
+.day__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 26px 28px 30px;
+}
+.day__when {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1;
+}
+.day__when span {
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--ouro);
 }
-.guest h3 {
+.day__time {
   margin: 0;
-  font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 34px;
-  font-weight: 900;
-  line-height: 1;
-}
-.guest a {
   font-size: 15px;
-  align-self: flex-start;
+  opacity: 0.8;
 }
+.day__artists {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid rgba(199, 158, 88, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+.section-creme .day__artists a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(199, 158, 88, 0.6);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .section-creme .day__artists a:hover {
+    color: var(--ouro);
+    text-decoration-color: var(--ouro);
+  }
+}
+.day__special {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+}
+.day__special .chip-gold {
+  padding: 4px 10px;
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
 /* Letreiro */
 .marquee {
   margin-top: 96px;
@@ -991,11 +949,13 @@ a {
   transition: transform 500ms var(--ease-out);
 }
 @media (hover: hover) and (pointer: fine) {
-  .gallery figure:hover img {
+  .gallery figure:hover img,
+  .espaco figure:hover img {
     transform: scale(1.03);
   }
 }
-.gallery figcaption {
+.gallery figcaption,
+.espaco figcaption {
   position: absolute;
   left: 14px;
   bottom: 14px;
@@ -1005,6 +965,35 @@ a {
   color: var(--verde-noite);
   font-size: 13px;
   font-weight: 600;
+}
+
+/* O espaço */
+.espaco {
+  scroll-margin-top: 32px;
+  padding-bottom: 112px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.espaco__grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  height: clamp(420px, 44vw, 560px);
+  gap: 16px;
+}
+.espaco figure {
+  margin: 0;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+}
+.espaco img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms var(--ease-out);
 }
 
 /* ============ Redes ============ */
@@ -1368,21 +1357,29 @@ a {
   }
 }
 
-/* Tablet: convidados lado a lado em vez de cards gigantes */
-@media (min-width: 768px) and (max-width: 1099px) {
-  .guests {
-    flex-direction: row;
+/* Até tablet: a grade vira carrossel com o próximo dia aparecendo na borda */
+@media (max-width: 899px) {
+  .days {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+    scroll-padding-inline: var(--gutter);
   }
-  .guest {
-    flex: 1 1 0;
+  .days::-webkit-scrollbar {
+    display: none;
   }
-  .guest img {
-    flex-basis: 140px;
-    width: 140px;
+  .day {
+    flex: 0 0 46%;
+    scroll-snap-align: start;
   }
 }
 
-@media (max-width: 899px) {
+@media (max-width: 1099px) {
   .header-nav {
     display: none;
   }
@@ -1592,93 +1589,21 @@ a {
   .lineup__head .lead {
     margin-top: 0;
   }
-  .kicker-full {
-    display: none;
-  }
-  .kicker-short {
-    display: inline;
-  }
-  .lineup__cards {
-    gap: 18px;
+  .days {
     margin-top: 8px;
   }
-  .headliner {
-    flex-basis: 100%;
-    min-height: 0;
-    height: 420px;
+  .day {
+    flex-basis: 82%;
     border-radius: 24px;
   }
-  .headliner__veil {
-    background: rgba(13, 35, 24, 0.55);
+  .day__body {
+    padding: 20px 20px 24px;
   }
-  .headliner__img {
-    right: -20px;
-    top: 0;
-    bottom: auto;
-    height: 330px;
-    max-width: none;
+  .day__when {
+    font-size: 32px;
   }
-  .headliner__fade {
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 220px;
-    background: linear-gradient(180deg, rgba(13, 35, 24, 0), #0d2318 55%);
-  }
-  .headliner__body {
-    position: absolute;
-    left: 22px;
-    right: 22px;
-    bottom: 22px;
-    padding: 0;
-    gap: 8px;
-    max-width: none;
-  }
-  .chip-gold {
-    padding: 5px 12px;
-    font-size: 11px;
-  }
-  .headliner h3 {
-    font-size: 40px;
-  }
-  .headliner__meta {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-  }
-  .headliner__extra {
-    font-size: 26px;
-  }
-  .headliner__handle {
-    font-size: 14px;
-  }
-  .guests {
-    flex-basis: 100%;
-    gap: 18px;
-  }
-  .guest {
-    border-radius: 24px;
-    min-height: 150px;
-  }
-  .guest img {
-    flex-basis: 130px;
-    width: 130px;
-  }
-  .guest__body {
-    padding: 18px;
-    gap: 4px;
-  }
-  .guest__role {
-    font-size: 11px;
-  }
-  .guest h3 {
-    font-size: 28px;
-  }
-  .guest a {
-    font-size: 14px;
+  .day__artists {
+    font-size: 21px;
   }
 
   .marquee {
@@ -1733,11 +1658,29 @@ a {
     min-height: 0;
     height: 330px;
   }
-  .gallery figcaption {
+  .gallery figcaption,
+  .espaco figcaption {
     left: 10px;
     bottom: 10px;
     padding: 4px 10px;
     font-size: 12px;
+  }
+  .espaco {
+    padding-bottom: 64px;
+    gap: 18px;
+  }
+  .espaco__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 260px 220px;
+    height: auto;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .espaco figure {
+    border-radius: 18px;
+  }
+  .espaco figure:first-child {
+    grid-column: span 2;
   }
 
   /* Redes */
@@ -1848,20 +1791,11 @@ a {
   .hero__kicker .rule {
     width: 16px;
   }
-  .headliner__meta {
-    flex-wrap: wrap;
-  }
   .hero__glass {
     width: 120px;
     height: 150px;
   }
   .hero__tag strong {
     font-size: 18px;
-  }
-  .headliner h3 {
-    font-size: 34px;
-  }
-  .headliner__extra {
-    font-size: 22px;
   }
 }

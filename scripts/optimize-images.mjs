@@ -12,9 +12,13 @@ const jobs = [
   ["logos/logo_ouro.png", "logo-ouro", [480]],
   ["logos/selo_verde.png", "selo", [96, 240]],
   ["artistas/renanzinho.webp", "renanzinho", [480, 640, 800, 1100], 70],
-  ["artistas/gelasamba.jpg", "gelasamba", [335]],
-  // Boma: recorte do rosto aos joelhos (a foto original é de corpo inteiro).
-  ["artistas/boma.jpg", "boma", [366], 80, { left: 0, top: 40, width: 366, height: 400 }],
+  // Cartazes da programação. O de sábado vem mais largo: recorte central na proporção dos outros.
+  ["programacao/sexta.jpg", "programacao-sexta", [400, 720], 76],
+  ["programacao/sabado.jpg", "programacao-sabado", [400, 720], 76, { left: 23, top: 0, width: 1075, height: 1402 }],
+  ["programacao/domingo.jpg", "programacao-domingo", [400, 720], 76],
+  ["espaco/salao.jpg", "espaco-salao", [480, 960], 74],
+  ["espaco/palco.jpg", "espaco-palco", [400, 720], 74],
+  ["espaco/entrada.jpg", "espaco-entrada", [400, 720], 74],
   ["mockups/copo_cerveja.jpg", "copo-cerveja", [300, 520, 900]],
   ["mockups/copo_drink.jpg", "copo-drink", [400, 800]],
   ["mockups/petiscos.jpg", "petiscos", [400, 800]],

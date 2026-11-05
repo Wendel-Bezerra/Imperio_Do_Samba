@@ -92,7 +92,7 @@ export default function Hero() {
               <ArrowIcon />
             </a>
             <a className="btn btn--ghost" href="#atracoes">
-              Ver atrações
+              Ver programação
             </a>
           </div>
         </div>

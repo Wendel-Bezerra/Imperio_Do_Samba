@@ -21,19 +21,19 @@ export const site = {
     dates: "06 a 08 de novembro",
     datesShort: "06 a 08/11",
     // Abertura (alvo da contagem) e fim do último dia, no fuso de Salvador.
-    start: "2026-11-06T16:30:00-03:00",
+    start: "2026-11-06T17:30:00-03:00",
     end: "2026-11-09T00:00:00-03:00",
     place: "Vila Jardim dos Namorados",
     city: "Salvador",
     // Janelas de funcionamento, usadas pela contagem durante o evento.
     sessions: [
-      { open: "2026-11-06T16:30:00-03:00", close: "2026-11-07T02:00:00-03:00", opens: "16h30", closes: "02h" },
-      { open: "2026-11-07T16:30:00-03:00", close: "2026-11-08T02:00:00-03:00", opens: "16h30", closes: "02h" },
-      { open: "2026-11-08T16:00:00-03:00", close: "2026-11-09T00:00:00-03:00", opens: "16h", closes: "00h" },
+      { open: "2026-11-06T17:30:00-03:00", close: "2026-11-07T02:00:00-03:00", opens: "17h30", closes: "02h" },
+      { open: "2026-11-07T17:30:00-03:00", close: "2026-11-08T02:00:00-03:00", opens: "17h30", closes: "02h" },
+      { open: "2026-11-08T17:30:00-03:00", close: "2026-11-09T00:00:00-03:00", opens: "17h30", closes: "00h" },
     ],
     hours: [
-      { days: "Sex e Sáb", time: "16h30 às 02h" },
-      { days: "Domingo", time: "16h às 00h" },
+      { days: "Sex e Sáb", time: "17h30 às 02h" },
+      { days: "Domingo", time: "17h30 às 00h" },
     ],
   },
 
@@ -44,42 +44,56 @@ export const site = {
 
   nav: [
     { label: "Soft Open", href: "#soft-open" },
-    { label: "Atrações", href: "#atracoes" },
+    { label: "Programação", href: "#atracoes" },
     { label: "A casa", href: "#imperio" },
+    { label: "O espaço", href: "#espaco" },
     { label: "Instagram", href: "#redes" },
   ],
 
-  lineup: {
-    kicker: "Sexta-feira · 06 de novembro",
-    kickerShort: "Sexta · 06 de novembro",
-    title: "A noite de abertura do Império",
-    text: "Portas abertas às 16h30. Mesa de samba até tarde e after para fechar a primeira noite da casa.",
-    headliner: {
-      name: "Renanzinho CBX",
-      extra: "e convidados",
-      handle: "renanzinhocbx",
-      url: "https://www.instagram.com/renanzinhocbx/",
-    },
-    guests: [
+  // Grade do Soft Open, na ordem dos dias. `handle` vazio = atração sem Instagram no site;
+  // `special` é a participação especial do dia ("" quando não tem).
+  programacao: {
+    kicker: "06, 07 e 08 de novembro",
+    title: "A programação do Soft Open",
+    text: "Três dias de mesa de samba na Vila Jardim dos Namorados. Portas abertas a partir das 17h30.",
+    days: [
       {
-        role: "Atração principal",
-        name: "Gela Samba",
-        handle: "gelasamba",
-        url: "https://www.instagram.com/gelasamba/",
-        img: "/assets/opt/gelasamba-335.webp",
-        alt: "Gela Samba ao vivo",
-        position: "center 35%",
-        tone: "verde",
+        weekday: "Sexta",
+        date: "06 nov",
+        time: "17h30",
+        poster: "programacao-sexta",
+        alt: "Cartaz de sexta, 06 de novembro: Renanzinho, Gela Samba, DJ Boma e Samba 40° em participação especial",
+        artists: [
+          { name: "Renanzinho CBX", handle: "renanzinhocbx" },
+          { name: "Gela Samba", handle: "gelasamba" },
+          { name: "DJ Boma", handle: "djboma071" },
+        ],
+        special: "Samba 40°",
       },
       {
-        role: "After",
-        name: "Boma",
-        handle: "djboma071",
-        url: "https://www.instagram.com/djboma071/",
-        img: "/assets/opt/boma-366.webp",
-        alt: "DJ Boma",
-        position: "center top",
-        tone: "marrom",
+        weekday: "Sábado",
+        date: "07 nov",
+        time: "17h30",
+        poster: "programacao-sabado",
+        alt: "Cartaz de sábado, 07 de novembro: Pedrinho, Jow e Laio",
+        artists: [
+          { name: "Pedrinho", handle: "" },
+          { name: "Jow", handle: "" },
+          { name: "Laio", handle: "" },
+        ],
+        special: "",
+      },
+      {
+        weekday: "Domingo",
+        date: "08 nov",
+        time: "17h30",
+        poster: "programacao-domingo",
+        alt: "Cartaz de domingo, 08 de novembro: Água Fresca, Simplesmente Luís e Os Sungas em participação especial",
+        artists: [
+          { name: "Água Fresca", handle: "" },
+          { name: "Simplesmente Luís", handle: "" },
+        ],
+        special: "Os Sungas",
       },
     ],
   },
@@ -95,6 +109,17 @@ export const site = {
       { img: "copo-cerveja", widths: [300, 520, 900], sizes: "(max-width: 767px) 50vw, 240px", alt: "Copo de cerveja Império", caption: "A gelada da casa" },
       { img: "copo-drink", widths: [400, 800], sizes: "(max-width: 767px) 50vw, 460px", alt: "Drink da casa com limão", caption: "Drinks" },
       { img: "petiscos", widths: [400, 800], sizes: "(max-width: 767px) 50vw, 460px", alt: "Porção de petiscos com bandeirinha Império", caption: "Petiscos" },
+    ],
+  },
+
+  espaco: {
+    kicker: "Vila Jardim dos Namorados",
+    title: "Conheça o espaço",
+    text: "Salão amplo e coberto, palco para a mesa de samba e uma entrada que já anuncia a noite.",
+    photos: [
+      { img: "espaco-salao", widths: [480, 960], sizes: "(max-width: 767px) 92vw, (max-width: 1239px) 38vw, 470px", alt: "Salão coberto com mesas de madeira, varal de luzes e piso de calçadão verde, marrom e creme", caption: "Salão" },
+      { img: "espaco-palco", widths: [400, 720], sizes: "(max-width: 767px) 46vw, (max-width: 1239px) 29vw, 360px", alt: "Palco com painel verde iluminado e o letreiro do Império do Samba", caption: "Palco" },
+      { img: "espaco-entrada", widths: [400, 720], sizes: "(max-width: 767px) 46vw, (max-width: 1239px) 29vw, 360px", alt: "Entrada em portal verde com o letreiro Império do Samba iluminado", caption: "Entrada" },
     ],
   },
 
@@ -137,7 +162,7 @@ export const site = {
   meta: {
     title: "Império do Samba · Soft Open 06 a 08/11 · Salvador",
     description:
-      "A casa de happy hour da cidade. Soft Open de 06 a 08 de novembro na Vila Jardim dos Namorados, com Renanzinho CBX, Gela Samba e after com Boma.",
+      "A casa de happy hour da cidade. Soft Open de 06 a 08 de novembro na Vila Jardim dos Namorados, com Renanzinho CBX, Gela Samba, DJ Boma, Pedrinho, Jow, Laio, Água Fresca, Simplesmente Luís e mais.",
   },
 } as const;
 
