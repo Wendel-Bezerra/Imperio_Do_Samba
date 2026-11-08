@@ -50,6 +50,14 @@ export const site = {
     { label: "Instagram", href: "#redes" },
   ],
 
+  sobre: {
+    title: "Sobre",
+    items: [
+      { title: "Entrada e couvert", text: "A entrada é gratuita. A casa cobra couvert." },
+      { title: "Direito de imagem", text: "Ao entrar no bar, você confirma a autorização de uso da sua imagem." },
+    ],
+  },
+
   // Grade do Soft Open, na ordem dos dias. `handle` vazio = atração sem Instagram no site;
   // `special` é a participação especial do dia ("" quando não tem).
   programacao: {

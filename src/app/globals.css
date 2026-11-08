@@ -240,6 +240,12 @@ a {
 .header-logo {
   display: block;
   line-height: 0;
+  margin-right: auto;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .header-logo img {
   height: 48px;
@@ -1313,6 +1319,124 @@ a {
   color: rgba(237, 222, 193, 0.85);
 }
 
+/* ============ Sobre ============ */
+.sobre-toggle {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1.5px solid var(--ouro);
+  background: rgba(13, 35, 24, 0.8);
+  color: var(--ouro);
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 160ms var(--ease-out);
+}
+.sobre-toggle:active {
+  transform: scale(0.95);
+}
+html:has(.sobre[open]) {
+  overflow: hidden;
+}
+.sobre {
+  width: min(480px, calc(100vw - 32px));
+  margin: auto;
+  padding: 0;
+  border: 1.5px solid var(--ouro);
+  border-radius: 20px;
+  background: var(--verde-noite);
+  color: var(--creme);
+}
+.sobre::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+.sobre__panel {
+  padding: 24px;
+}
+.sobre__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.sobre__title {
+  margin: 0;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 32px;
+  font-weight: 900;
+}
+.sobre__item {
+  margin-top: 20px;
+}
+.sobre__item h3 {
+  margin: 0 0 4px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ouro);
+}
+.sobre__item p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.5;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sobre[open] {
+    animation: sobre-in 220ms var(--ease-out);
+  }
+  @keyframes sobre-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+  }
+}
+
+/* ============ CTA fixo (celular) ============ */
+.sticky-cta {
+  display: none;
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 45;
+  padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
+  background: rgba(13, 35, 24, 0.92);
+  box-shadow: 0 -1px 0 rgba(199, 158, 88, 0.25);
+  transform: translateY(100%);
+  visibility: hidden;
+  transition:
+    transform 240ms var(--ease-out),
+    visibility 0s linear 240ms;
+}
+.sticky-cta[data-visible="true"] {
+  transform: none;
+  visibility: visible;
+  transition:
+    transform 240ms var(--ease-out),
+    visibility 0s;
+}
+.sticky-cta .btn {
+  display: flex;
+  width: 100%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sticky-cta .btn {
+    animation: cta-pisca 2s ease-in-out infinite;
+  }
+  @keyframes cta-pisca {
+    50% {
+      background-color: var(--creme);
+      box-shadow: 0 0 22px 4px rgba(237, 222, 193, 0.65);
+    }
+  }
+}
+
 /* ============ Responsivo ============ */
 
 /* Abaixo de 1100: hero e redes viram uma coluna, visual centralizado */
@@ -1777,9 +1901,12 @@ a {
   }
   .footer__legal {
     padding-top: 16px;
-    padding-bottom: 28px;
+    padding-bottom: calc(104px + env(safe-area-inset-bottom));
     font-size: 12px;
     line-height: 1.5;
+  }
+  .sticky-cta {
+    display: block;
   }
 }
 

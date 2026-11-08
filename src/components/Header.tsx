@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { site } from "@/content/site";
 import { confirmHref, external } from "@/lib/links";
-import { CloseIcon, MenuIcon } from "./icons";
+import Sobre from "./Sobre";
+import { ArrowIcon, CloseIcon, MenuIcon } from "./icons";
 
 function subscribeScroll(cb: () => void) {
   window.addEventListener("scroll", cb, { passive: true });
@@ -14,6 +15,11 @@ export default function Header() {
   const scrolled = useSyncExternalStore(
     subscribeScroll,
     () => window.scrollY > 8,
+    () => false,
+  );
+  const showStickyCta = useSyncExternalStore(
+    subscribeScroll,
+    () => window.scrollY > 120,
     () => false,
   );
   const [open, setOpen] = useState(false);
@@ -55,19 +61,29 @@ export default function Header() {
               Confirmar presença
             </a>
           </nav>
-          <button
-            ref={toggleRef}
-            type="button"
-            className="menu-toggle"
-            aria-label="Abrir menu"
-            aria-expanded={open}
-            aria-controls="menu-mobile"
-            onClick={() => setOpen(true)}
-          >
-            <MenuIcon />
-          </button>
+          <div className="header-actions">
+            <Sobre />
+            <button
+              ref={toggleRef}
+              type="button"
+              className="menu-toggle"
+              aria-label="Abrir menu"
+              aria-expanded={open}
+              aria-controls="menu-mobile"
+              onClick={() => setOpen(true)}
+            >
+              <MenuIcon />
+            </button>
+          </div>
         </div>
       </header>
+
+      <div className="sticky-cta" data-visible={showStickyCta} inert={!showStickyCta}>
+        <a className="btn btn--gold" href={confirm} {...external(confirm)}>
+          Garanta sua presença
+          <ArrowIcon />
+        </a>
+      </div>
 
       <div
         id="menu-mobile"
