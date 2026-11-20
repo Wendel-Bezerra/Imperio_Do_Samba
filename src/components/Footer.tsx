@@ -16,7 +16,7 @@ export default function Footer() {
           <span>{event.city} – BA</span>
         </div>
         <div className="footer__col">
-          <span className="footer__label">Soft Open · {event.datesShort}</span>
+          <span className="footer__label">Funcionamento</span>
           {event.hours.map((h) => (
             <span key={h.days}>
               {h.days} · {h.time}

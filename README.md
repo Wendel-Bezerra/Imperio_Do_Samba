@@ -1,6 +1,6 @@
-# Império do Samba · Site do Soft Open
+# Império do Samba · Site
 
-One-page estático (Next.js 16 + `output: "export"`) para https://imperiodosamba.com.br. Spec: `../IMPERIO-DO-SAMBA-SPEC (1).md`.
+One-page estático (Next.js 16 + `output: "export"`) para https://imperiodosamba.com.br.
 
 ```bash
 npm install
@@ -10,8 +10,9 @@ npm run build      # gera out/ (pasta estática para Vercel/qualquer host)
 
 ## Onde editar
 
-Todo texto, data e link fica em `src/content/site.ts`.
+Todo texto, horário e link fica em `src/content/site.ts`.
 
-- **Conversão via WhatsApp:** "Confirmar presença" e "Garanta sua presença" abrem o WhatsApp com `whatsapp.confirmMessage`; o botão de WhatsApp das redes e do rodapé usa `whatsapp.message`.
-- **Imagens:** o site usa as variantes WebP de `public/assets/opt/`. Trocou um asset original? Rode `npm run images`.
-- **Prévia de compartilhamento:** `public/og.png` (1200×630).
+- **Conversão via WhatsApp:** todos os botões ("Chama no WhatsApp", redes e rodapé) abrem a conversa com `whatsapp.message`. O texto do botão é `whatsapp.cta`.
+- **Imagens:** o site usa as variantes WebP de `public/assets/opt/`. As fotos reais da casa ficam em `public/assets/fotos/`. Trocou um asset original? Rode `npm run images`.
+- **Celular do Instagram:** as mídias ficam em `public/assets/reels/` e a ordem é a da lista `reels` (`type: "video"` ou `type: "image"`).
+- **Prévia de compartilhamento:** `public/og.png` (1200×630), gerada por `npm run og`.

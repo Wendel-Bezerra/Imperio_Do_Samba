@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { site } from "@/content/site";
-import { confirmHref, external } from "@/lib/links";
+import { whatsappHref, external } from "@/lib/links";
 import Sobre from "./Sobre";
 import { ArrowIcon, CloseIcon, MenuIcon } from "./icons";
 
@@ -42,13 +42,13 @@ export default function Header() {
     };
   }, [open]);
 
-  const confirm = confirmHref();
+  const confirm = whatsappHref();
 
   return (
     <>
       <header className="site-header" data-scrolled={scrolled}>
         <div className="container header-inner">
-          <a href="#soft-open" aria-label="Império do Samba — início" className="header-logo">
+          <a href="#inicio" aria-label="Império do Samba — início" className="header-logo">
             <img src="/assets/opt/logo-creme-280.webp" alt="Império do Samba" width={132} height={48} />
           </a>
           <nav aria-label="Principal" className="header-nav">
@@ -58,7 +58,7 @@ export default function Header() {
               </a>
             ))}
             <a className="btn btn--gold btn--sm" href={confirm} {...external(confirm)}>
-              Confirmar presença
+              {site.whatsapp.cta}
             </a>
           </nav>
           <div className="header-actions">
@@ -80,7 +80,7 @@ export default function Header() {
 
       <div className="sticky-cta" data-visible={showStickyCta} inert={!showStickyCta}>
         <a className="btn btn--gold" href={confirm} {...external(confirm)}>
-          Garanta sua presença
+          {site.whatsapp.cta}
           <ArrowIcon />
         </a>
       </div>
@@ -123,7 +123,7 @@ export default function Header() {
           {...external(confirm)}
           onClick={() => setOpen(false)}
         >
-          Confirmar presença
+          {site.whatsapp.cta}
         </a>
       </div>
     </>

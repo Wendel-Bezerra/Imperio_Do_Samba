@@ -4,9 +4,8 @@ import ReelsPhone from "./ReelsPhone";
 import { InstagramIcon, WhatsAppIcon } from "./icons";
 
 export default function Social() {
-  const { social, programacao } = site;
+  const { social } = site;
   const whatsapp = whatsappHref();
-  const handles = programacao.days.flatMap((d) => d.artists.filter((a) => a.handle !== ""));
 
   return (
     <section id="redes" className="redes">
@@ -34,18 +33,9 @@ export default function Social() {
               WhatsApp {site.whatsapp.display}
             </a>
           </div>
-          <div className="redes__who">
-            <span className="redes__who-label">Siga as atrações</span>
-            <div className="redes__who-links">
-              {handles.map((a) => (
-                <a key={a.handle} href={`https://www.instagram.com/${a.handle}/`} target="_blank" rel="noopener noreferrer">
-                  @{a.handle}
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>
   );
 }
+

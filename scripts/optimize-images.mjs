@@ -11,22 +11,21 @@ const jobs = [
   ["logos/logo_creme.png", "logo-creme", [280, 600, 1120], 72],
   ["logos/logo_ouro.png", "logo-ouro", [480]],
   ["logos/selo_verde.png", "selo", [96, 240]],
-  ["artistas/renanzinho.webp", "renanzinho", [480, 640, 800, 1100], 70],
-  // Cartazes da programação. O de sábado vem mais largo: recorte central na proporção dos outros.
-  ["programacao/sexta.jpg", "programacao-sexta", [400, 720], 76],
-  ["programacao/sabado.jpg", "programacao-sabado", [400, 720], 76, { left: 23, top: 0, width: 1075, height: 1402 }],
-  ["programacao/domingo.jpg", "programacao-domingo", [400, 720], 76],
-  ["espaco/salao.jpg", "espaco-salao", [480, 960], 74],
-  ["espaco/palco.jpg", "espaco-palco", [400, 720], 74],
-  ["espaco/entrada.jpg", "espaco-entrada", [400, 720], 74],
-  ["mockups/copo_cerveja.jpg", "copo-cerveja", [300, 520, 900]],
-  ["mockups/copo_drink.jpg", "copo-drink", [400, 800]],
-  ["mockups/petiscos.jpg", "petiscos", [400, 800]],
+  // Fotos reais da casa (public/assets/fotos/).
+  ["fotos/entrada.jpg", "hero-entrada", [480, 800, 994], 74],
+  ["fotos/salao.jpg", "espaco-salao", [480, 960], 74],
+  ["fotos/palco.jpg", "espaco-palco", [400, 720], 74],
+  ["fotos/letreiro.jpg", "espaco-entrada", [400, 720], 74],
+  ["fotos/chope.jpg", "copo-cerveja", [300, 520, 900]],
+  // Drink e petiscos entram em quadros deitados: recorte na parte que interessa.
+  ["fotos/drink.jpg", "copo-drink", [400, 800], 78, { left: 0, top: 760, width: 1067, height: 640 }],
+  ["fotos/petiscos.jpg", "petiscos", [400, 800], 78, { left: 0, top: 640, width: 1132, height: 700 }],
   ["fundos/copo_recorte.webp", "copo-recorte", [320]],
   ["fundos/bokeh.webp", "bokeh", [500, 800, 1600], 45],
   ["fundos/bar_noite.jpg", "bar-noite", [800, 1200]],
   ["fundos/bar_ambiente.jpg", "bar-ambiente", [800]],
-  ...[1, 2, 3, 4].map((n) => [`reels/reel-0${n}-poster.jpg`, `reel-0${n}-poster`, [540]]),
+  // Foto que entra entre os vídeos do celular.
+  ["reels/destaque-02.jpg", "destaque-02", [720], 74],
 ];
 
 await mkdir(OUT, { recursive: true });

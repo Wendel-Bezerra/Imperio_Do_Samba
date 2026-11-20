@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Programacao from "@/components/Programacao";
 import Marquee from "@/components/Marquee";
 import ImperioBlock from "@/components/ImperioBlock";
 import Espaco from "@/components/Espaco";
@@ -15,10 +14,7 @@ export default function Home() {
       <main>
         <Hero />
 
-        <section id="atracoes" className="section-creme">
-          <img className="deco deco--creme-a" data-parallax="0.08" src="/assets/opt/copo-recorte-320.webp" alt="" aria-hidden="true" loading="lazy" />
-          <img className="deco deco--creme-b" data-parallax="0.14" src="/assets/opt/copo-recorte-320.webp" alt="" aria-hidden="true" loading="lazy" />
-          <Programacao />
+        <section id="casa" className="section-creme">
           <Marquee />
           <ImperioBlock />
           <Espaco />

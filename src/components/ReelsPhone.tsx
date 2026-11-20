@@ -5,6 +5,8 @@ import { site } from "@/content/site";
 import { CameraIcon, ChevronIcon, CommentIcon, HeartIcon, SendIcon } from "./icons";
 
 const reels = site.reels;
+// Tempo de tela das fotos, entre um vídeo e outro.
+const IMAGE_MS = 5000;
 
 function subscribeReduced(cb: () => void) {
   const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -16,8 +18,9 @@ export default function ReelsPhone() {
   const [idx, setIdx] = useState(0);
   const [switching, setSwitching] = useState(false);
   const [inView, setInView] = useState(false);
-  // Vídeo e poster só entram quando o celular se aproxima da tela.
+  // As mídias só entram quando o celular se aproxima da tela.
   const [near, setNear] = useState(false);
+  const screenRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const reduced = useSyncExternalStore(
     subscribeReduced,
@@ -25,9 +28,12 @@ export default function ReelsPhone() {
     () => false,
   );
 
+  const reel = reels[idx];
+  const isVideo = reel.type === "video";
+
   // Só toca quando o celular está na tela (poupa dados no 4G).
   useEffect(() => {
-    const el = videoRef.current;
+    const el = screenRef.current;
     if (!el) return;
     const io = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold: 0.25 });
     const nearIo = new IntersectionObserver(
@@ -56,33 +62,42 @@ export default function ReelsPhone() {
     else v.pause();
   }, [idx, inView, near]);
 
+  // Fotos avançam sozinhas; com movimento reduzido ficam paradas até o usuário trocar.
+  useEffect(() => {
+    if (isVideo || !inView || reduced || reels.length < 2) return;
+    const t = setTimeout(() => setIdx((i) => (i + 1) % reels.length), IMAGE_MS);
+    return () => clearTimeout(t);
+  }, [idx, isVideo, inView, reduced]);
+
   const go = (next: number) => {
     const n = (next + reels.length) % reels.length;
     if (n === idx) return;
-    setSwitching(true);
+    setSwitching(reels[n].type === "video");
     setIdx(n);
   };
-
-  const reel = reels[idx];
 
   return (
     <div className="redes__phone">
       <div className="phone">
-        <div className="phone__screen">
-          <video
-            ref={videoRef}
-            className="phone__video"
-            data-switching={switching}
-            src={near ? reel.src : undefined}
-            poster={near ? reel.poster : undefined}
-            aria-label={reel.alt}
-            muted
-            playsInline
-            loop={reduced}
-            preload="metadata"
-            onLoadedData={() => setSwitching(false)}
-            onEnded={() => go(idx + 1)}
-          />
+        <div className="phone__screen" ref={screenRef}>
+          {isVideo ? (
+            <video
+              key={reel.src}
+              ref={videoRef}
+              className="phone__video"
+              data-switching={switching}
+              src={near ? reel.src : undefined}
+              aria-label={reel.alt}
+              muted
+              playsInline
+              loop={reduced || reels.length < 2}
+              preload="metadata"
+              onLoadedData={() => setSwitching(false)}
+              onEnded={() => go(idx + 1)}
+            />
+          ) : (
+            <img key={reel.src} className="phone__video phone__photo" src={near ? reel.src : undefined} alt={reel.alt} />
+          )}
           <div className="phone__shade" aria-hidden="true" />
           <div className="phone__island" aria-hidden="true" />
           <div className="phone__top" aria-hidden="true">
@@ -110,30 +125,32 @@ export default function ReelsPhone() {
         </div>
       </div>
 
-      <div className="reels-controls">
-        <button type="button" className="round-btn" aria-label="Reel anterior" onClick={() => go(idx - 1)}>
-          <ChevronIcon dir="left" />
-        </button>
-        <div className="dots">
-          {reels.map((r, i) => (
-            <button
-              key={r.src}
-              type="button"
-              className="dot"
-              aria-label={`Reel ${i + 1} de ${reels.length}`}
-              aria-current={i === idx}
-              onClick={() => go(i)}
-            >
-              <span />
-            </button>
-          ))}
+      {reels.length > 1 && (
+        <div className="reels-controls">
+          <button type="button" className="round-btn" aria-label="Anterior" onClick={() => go(idx - 1)}>
+            <ChevronIcon dir="left" />
+          </button>
+          <div className="dots">
+            {reels.map((r, i) => (
+              <button
+                key={r.src}
+                type="button"
+                className="dot"
+                aria-label={`Destaque ${i + 1} de ${reels.length}`}
+                aria-current={i === idx}
+                onClick={() => go(i)}
+              >
+                <span />
+              </button>
+            ))}
+          </div>
+          <button type="button" className="round-btn" aria-label="Próximo" onClick={() => go(idx + 1)}>
+            <ChevronIcon dir="right" />
+          </button>
         </div>
-        <button type="button" className="round-btn" aria-label="Próximo reel" onClick={() => go(idx + 1)}>
-          <ChevronIcon dir="right" />
-        </button>
-      </div>
+      )}
       <a className="reels-note" href={site.instagram.url} target="_blank" rel="noopener noreferrer">
-        Reels do @{site.instagram.handle}
+        Direto do @{site.instagram.handle}
       </a>
     </div>
   );

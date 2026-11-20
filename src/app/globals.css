@@ -139,22 +139,6 @@ a {
 .redes {
   overflow: clip;
 }
-.deco--creme-a {
-  right: 4%;
-  top: 40px;
-  width: 230px;
-  opacity: 0.35;
-  filter: blur(3px);
-  rotate: 8deg;
-}
-.deco--creme-b {
-  right: 17%;
-  top: 110px;
-  width: 150px;
-  opacity: 0.18;
-  filter: blur(6px);
-  rotate: -6deg;
-}
 
 /* ============ Botões ============ */
 .btn {
@@ -495,85 +479,6 @@ a {
   background: rgba(199, 158, 88, 0.35);
 }
 
-/* Contagem */
-.countdown {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
-  min-height: 70px;
-}
-.countdown__label {
-  font-size: 13px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ouro);
-  font-weight: 600;
-  margin-right: 6px;
-}
-.countdown__boxes {
-  display: contents;
-}
-.countdown__box {
-  width: 74px;
-  padding: 10px 0;
-  border-radius: 12px;
-  background: var(--verde);
-  text-align: center;
-}
-.countdown__num {
-  font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
-}
-.countdown__unit {
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-top: 4px;
-}
-.countdown--live {
-  gap: 14px;
-}
-.live-dot {
-  position: relative;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--ouro);
-}
-@media (prefers-reduced-motion: no-preference) {
-  .live-dot::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background: var(--ouro);
-    animation: pulse 1.6s var(--ease-out) infinite;
-  }
-}
-@keyframes pulse {
-  from {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  to {
-    transform: scale(2.6);
-    opacity: 0;
-  }
-}
-.countdown__live-title {
-  font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 1;
-}
-.countdown__live-sub {
-  font-size: 15px;
-}
-
 .hero__ctas {
   display: flex;
   flex-wrap: wrap;
@@ -613,17 +518,6 @@ a {
   height: calc(var(--arc-h) - 24px);
   border: 1px solid rgba(199, 158, 88, 0.45);
   box-sizing: border-box;
-}
-.hero__artist {
-  position: absolute;
-  left: 50%;
-  bottom: var(--arc-bottom);
-  transform: translateX(-46%);
-  height: calc(var(--arc-h) + 10px);
-  width: auto;
-  max-width: 96%;
-  object-fit: contain;
-  object-position: bottom;
 }
 .hero__glass {
   position: absolute;
@@ -700,7 +594,7 @@ a {
   }
 }
 
-/* ============ Atrações ============ */
+/* ============ Seção creme ============ */
 .section-creme {
   position: relative;
   background: var(--creme);
@@ -709,11 +603,6 @@ a {
 }
 .section-creme a {
   color: var(--ouro);
-}
-.lineup {
-  display: flex;
-  flex-direction: column;
-  gap: 56px;
 }
 .lineup__head {
   display: flex;
@@ -730,113 +619,6 @@ a {
 .lineup__head .lead {
   margin-top: 10px;
   color: var(--marrom);
-}
-.chip-gold {
-  align-self: flex-start;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: var(--ouro);
-  color: var(--verde-noite);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-.days {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-}
-.days:focus-visible {
-  outline-offset: 6px;
-}
-.day {
-  display: flex;
-  flex-direction: column;
-  border-radius: 28px;
-  overflow: hidden;
-  background: var(--verde-noite);
-  color: var(--creme);
-}
-.day__poster {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1104 / 1440;
-  object-fit: cover;
-}
-.day__body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 26px 28px 30px;
-}
-.day__when {
-  margin: 0;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 38px;
-  font-weight: 900;
-  line-height: 1;
-}
-.day__when span {
-  font-family: var(--font-outfit), system-ui, sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ouro);
-}
-.day__time {
-  margin: 0;
-  font-size: 15px;
-  opacity: 0.8;
-}
-.day__artists {
-  list-style: none;
-  margin: 10px 0 0;
-  padding: 16px 0 0;
-  border-top: 1px solid rgba(199, 158, 88, 0.35);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 23px;
-  font-weight: 700;
-  line-height: 1.15;
-}
-.section-creme .day__artists a {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-color: rgba(199, 158, 88, 0.6);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 5px;
-  transition: color 160ms ease, text-decoration-color 160ms ease;
-}
-@media (hover: hover) and (pointer: fine) {
-  .section-creme .day__artists a:hover {
-    color: var(--ouro);
-    text-decoration-color: var(--ouro);
-  }
-}
-.day__special {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px 10px;
-}
-.day__special .chip-gold {
-  padding: 4px 10px;
-  font-family: var(--font-outfit), system-ui, sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.14em;
 }
 
 /* Letreiro */
@@ -1052,27 +834,6 @@ a {
 .redes__buttons .btn {
   font-size: 16px;
   padding: 0 26px;
-}
-.redes__who {
-  margin-top: 14px;
-  padding-top: 22px;
-  border-top: 1px solid rgba(199, 158, 88, 0.35);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.redes__who-label {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ouro);
-}
-.redes__who-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 24px;
-  font-size: 16px;
 }
 .redes__phone {
   grid-area: phone;
@@ -1471,35 +1232,11 @@ html:has(.sobre[open]) {
     row-gap: 40px;
     text-align: center;
   }
-  .redes__intro,
-  .redes__who {
+  .redes__intro {
     align-items: center;
   }
-  .redes__buttons,
-  .redes__who-links {
+  .redes__buttons {
     justify-content: center;
-  }
-}
-
-/* Até tablet: a grade vira carrossel com o próximo dia aparecendo na borda */
-@media (max-width: 899px) {
-  .days {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    margin-inline: calc(var(--gutter) * -1);
-    padding-inline: var(--gutter);
-    scroll-padding-inline: var(--gutter);
-  }
-  .days::-webkit-scrollbar {
-    display: none;
-  }
-  .day {
-    flex: 0 0 46%;
-    scroll-snap-align: start;
   }
 }
 
@@ -1542,13 +1279,6 @@ html:has(.sobre[open]) {
   .calcadao--footer {
     height: 30px;
   }
-  .deco--creme-a {
-    right: -20px;
-    top: 24px;
-    width: 120px;
-    opacity: 0.3;
-  }
-  .deco--creme-b,
   .deco--desktop {
     display: none;
   }
@@ -1605,10 +1335,6 @@ html:has(.sobre[open]) {
   }
   .arc--inner {
     display: none;
-  }
-  .hero__artist {
-    height: 420px;
-    max-width: 340px;
   }
   .hero__glass {
     left: 10px;
@@ -1670,26 +1396,6 @@ html:has(.sobre[open]) {
     flex-basis: 100%;
     padding: 16px 20px;
   }
-  .countdown__label {
-    display: none;
-  }
-  .countdown:not(.countdown--live) {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 8px;
-  }
-  .countdown__box {
-    width: auto;
-  }
-  .countdown__num {
-    font-size: 26px;
-  }
-  .countdown__unit {
-    font-size: 10px;
-  }
-  .countdown--live {
-    justify-content: center;
-  }
   .hero__ctas .btn--ghost {
     display: none;
   }
@@ -1701,9 +1407,6 @@ html:has(.sobre[open]) {
   .section-creme {
     padding-top: 64px;
   }
-  .lineup {
-    gap: 18px;
-  }
   .lineup__head {
     gap: 18px;
   }
@@ -1712,22 +1415,6 @@ html:has(.sobre[open]) {
   }
   .lineup__head .lead {
     margin-top: 0;
-  }
-  .days {
-    margin-top: 8px;
-  }
-  .day {
-    flex-basis: 82%;
-    border-radius: 24px;
-  }
-  .day__body {
-    padding: 20px 20px 24px;
-  }
-  .day__when {
-    font-size: 32px;
-  }
-  .day__artists {
-    font-size: 21px;
   }
 
   .marquee {
@@ -1872,15 +1559,6 @@ html:has(.sobre[open]) {
     width: 100%;
     min-height: 54px;
   }
-  .redes__who {
-    margin-top: 0;
-    align-items: center;
-  }
-  .redes__who-links {
-    justify-content: center;
-    gap: 8px 18px;
-    font-size: 14px;
-  }
 
   /* Rodapé */
   .footer__main {
@@ -1924,5 +1602,67 @@ html:has(.sobre[open]) {
   }
   .hero__tag strong {
     font-size: 18px;
+  }
+}
+
+/* ============ Ajustes do hero e da seção creme ============ */
+/* A seção creme agora abre direto no letreiro. */
+.section-creme {
+  padding-top: 0;
+}
+.section-creme .marquee {
+  margin-top: 0;
+}
+
+/* Foto do hero, recortada no arco. */
+.hero__photo {
+  bottom: calc(var(--arc-bottom) + 12px);
+  width: calc(var(--arc-w) - 24px);
+  height: calc(var(--arc-h) - 24px);
+  object-fit: cover;
+  object-position: 50% 20%;
+  border: 1px solid rgba(199, 158, 88, 0.45);
+  box-sizing: border-box;
+}
+.info-card__hours .info-card__label {
+  margin-bottom: -2px;
+}
+.info-card__row {
+  flex-wrap: wrap;
+}
+
+/* Aviso de direito de imagem, logo abaixo das informações principais. */
+.hero__aviso {
+  margin: -8px 0 0;
+  max-width: 560px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(237, 222, 193, 0.82);
+}
+.hero__aviso b {
+  font-weight: 600;
+  color: var(--ouro);
+}
+
+@media (max-width: 767px) {
+  .hero__photo {
+    bottom: calc(var(--arc-bottom) + 8px);
+    width: calc(var(--arc-w) - 16px);
+    height: calc(var(--arc-h) - 16px);
+  }
+  .hero__aviso {
+    margin-top: -6px;
+    text-align: center;
+    font-size: 12px;
+  }
+}
+
+/* O nome do local é mais longo que a data que ficava aqui. */
+.info-card__dates {
+  font-size: 24px;
+}
+@media (max-width: 767px) {
+  .info-card__dates {
+    font-size: 22px;
   }
 }

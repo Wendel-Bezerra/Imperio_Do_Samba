@@ -1,16 +1,8 @@
 import { site } from "@/content/site";
 
-function wa(text: string) {
-  return `https://wa.me/${site.whatsapp.number.replace(/\D/g, "")}?text=${encodeURIComponent(text)}`;
-}
-
-// "Confirmar presença" / "Garanta sua presença": conversa com a mensagem de confirmação.
-export function confirmHref() {
-  return wa(site.whatsapp.confirmMessage);
-}
-
+// Todos os botões de conversão abrem o WhatsApp com a mesma mensagem.
 export function whatsappHref() {
-  return wa(site.whatsapp.message);
+  return `https://wa.me/${site.whatsapp.number.replace(/\D/g, "")}?text=${encodeURIComponent(site.whatsapp.message)}`;
 }
 
 export function external(url: string) {
