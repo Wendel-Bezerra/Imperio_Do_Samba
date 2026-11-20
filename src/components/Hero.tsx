@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site } from "@/content/site";
 import { whatsappHref, external } from "@/lib/links";
 import { opt } from "@/lib/img";
@@ -6,7 +7,7 @@ import { ArrowIcon, PinIcon, WhatsAppIcon } from "./icons";
 const d = (i: number) => ({ "--i": i }) as React.CSSProperties;
 
 export default function Hero() {
-  const { event, hero } = site;
+  const { event, hero, convite } = site;
   const whatsapp = whatsappHref();
 
   return (
@@ -30,30 +31,21 @@ export default function Hero() {
         </div>
 
         <div className="hero__visual">
-          <div className="arc arc--tile azulejo-noite" aria-hidden="true" />
-          <div className="arc arc--frame" aria-hidden="true" />
-          <img className="deco hero__deco-m" src="/assets/opt/copo-recorte-320.webp" alt="" aria-hidden="true" loading="lazy" />
-          <img
-            className="arc hero__photo"
-            {...opt("hero-entrada", [480, 800, 994])}
-            sizes="(max-width: 767px) 300px, 410px"
-            alt={hero.photoAlt}
-            width={994}
-            height={1600}
-            fetchPriority="high"
-          />
-          <img
-            className="hero__glass enter enter--pop"
-            style={d(4)}
-            {...opt("copo-cerveja", [300, 520])}
-            sizes="(max-width: 767px) 140px, 250px"
-            alt="Copo de chope Império gelado"
-            width={250}
-            height={312}
-          />
-          <div className="hero__tag enter enter--pop" style={d(5)}>
-            <small>{hero.tag.small}</small>
-            <strong>{hero.tag.strong}</strong>
+          <div className="hero__collage">
+            {convite.photos.map((p, i) => (
+              <img
+                key={p.img}
+                className="enter"
+                style={d(i + 2)}
+                {...opt(p.img, [...p.widths])}
+                sizes={p.sizes}
+                alt={p.alt}
+                width={p.w}
+                height={p.h}
+                fetchPriority={i === 0 ? "high" : undefined}
+              />
+            ))}
+            <h2 className="hero__convite enter enter--pop" style={d(5)}>{convite.title}</h2>
           </div>
         </div>
 
@@ -90,9 +82,9 @@ export default function Hero() {
               {site.whatsapp.cta}
               <ArrowIcon />
             </a>
-            <a className="btn btn--ghost" href="#espaco">
-              Conheça o espaço
-            </a>
+            <Link className="btn btn--ghost" href="/galeria">
+              {convite.cta}
+            </Link>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { site } from "@/content/site";
-import { CameraIcon, ChevronIcon, CommentIcon, HeartIcon, SendIcon } from "./icons";
+import { CameraIcon, ChevronIcon, CommentIcon, HeartIcon, SendIcon, SoundIcon } from "./icons";
 
 const reels = site.reels;
 // Tempo de tela das fotos, entre um vídeo e outro.
@@ -20,6 +20,8 @@ export default function ReelsPhone() {
   const [inView, setInView] = useState(false);
   // As mídias só entram quando o celular se aproxima da tela.
   const [near, setNear] = useState(false);
+  // Começa sem som (o navegador só deixa tocar sozinho assim); o botão do celular liga o áudio.
+  const [muted, setMuted] = useState(true);
   const screenRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const reduced = useSyncExternalStore(
@@ -57,10 +59,20 @@ export default function ReelsPhone() {
     const v = videoRef.current;
     if (!v) return;
     // O React não aplica `muted` como atributo; sem isso o autoplay falha no iOS.
-    v.muted = true;
-    if (inView) v.play().catch(() => {});
-    else v.pause();
-  }, [idx, inView, near]);
+    v.muted = muted;
+    if (!inView) {
+      v.pause();
+      return;
+    }
+    v.play().catch(() => {
+      // Com som o navegador pode recusar: volta para o mudo e toca mesmo assim.
+      if (!v.muted) {
+        setMuted(true);
+        v.muted = true;
+        v.play().catch(() => {});
+      }
+    });
+  }, [idx, inView, near, muted]);
 
   // Fotos avançam sozinhas; com movimento reduzido ficam paradas até o usuário trocar.
   useEffect(() => {
@@ -104,6 +116,17 @@ export default function ReelsPhone() {
             <span>Reels</span>
             <CameraIcon />
           </div>
+          {isVideo && (
+            <button
+              type="button"
+              className="phone__sound"
+              aria-label={muted ? "Ativar som" : "Desativar som"}
+              aria-pressed={!muted}
+              onClick={() => setMuted((m) => !m)}
+            >
+              <SoundIcon on={!muted} />
+            </button>
+          )}
           <div className="phone__side" aria-hidden="true">
             <HeartIcon />
             <CommentIcon />

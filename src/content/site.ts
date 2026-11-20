@@ -24,18 +24,17 @@ export const site = {
   hero: {
     kicker: "Mesa de samba · Happy hour",
     tagline: "Sua casa de samba favorita em Salvador",
-    text: "Mesa de samba, cerveja Império trincando e petisco de boteco na Vila Jardim dos Namorados. Chega cedo, que a roda esquenta rápido.",
-    photoAlt: "Entrada do Império do Samba à noite, com o letreiro aceso e o público chegando",
-    tag: { small: "Sexta a domingo", strong: "MESA DE SAMBA" },
+    text: "Cerveja Império trincando, comida de boteco e SAMBA AO VIVO. Conheça a melhor casa de samba da cidade, na Vila Jardim dos Namorados!",
     // Aviso pequeno logo abaixo das informações principais.
     notice: { label: "Direito de imagem", text: "Ao entrar no bar, você confirma a autorização de uso da sua imagem." },
   },
 
   nav: [
-    { label: "Início", href: "#inicio" },
-    { label: "A casa", href: "#imperio" },
-    { label: "O espaço", href: "#espaco" },
-    { label: "Instagram", href: "#redes" },
+    { label: "Início", href: "/#inicio" },
+    { label: "A casa", href: "/#imperio" },
+    { label: "O espaço", href: "/#espaco" },
+    { label: "Galeria", href: "/galeria" },
+    { label: "Instagram", href: "/#redes" },
   ],
 
   sobre: {
@@ -69,6 +68,24 @@ export const site = {
       { img: "espaco-palco", widths: [400, 720], sizes: "(max-width: 767px) 46vw, (max-width: 1239px) 29vw, 360px", alt: "Palco verde com o letreiro Império do Samba e a mesa de samba tocando", caption: "Palco" },
       { img: "espaco-entrada", widths: [400, 720], sizes: "(max-width: 767px) 46vw, (max-width: 1239px) 29vw, 360px", alt: "Letreiro luminoso Império do Samba sobre a entrada", caption: "Entrada" },
     ],
+  },
+
+  // Fotos, chamada e botão da galeria na tela inicial (lado direito do hero).
+  convite: {
+    title: "Venha pro melhor samba da cidade",
+    cta: "Conheça nossa galeria",
+    photos: [
+      { img: "convite-samba", widths: [640, 1280], w: 1280, h: 853, sizes: "(max-width: 767px) 92vw, 480px", alt: "Músicos da mesa de samba tocando ao vivo no palco" },
+      { img: "convite-modelo", widths: [480, 900], w: 900, h: 1353, sizes: "(max-width: 767px) 46vw, 240px", alt: "Cliente sorrindo com um drink na mão, em frente ao painel Império" },
+      { img: "convite-chope", widths: [480, 900], w: 900, h: 1350, sizes: "(max-width: 767px) 46vw, 240px", alt: "Copo de chope Império gelado no balcão, com as luzes da casa ao fundo" },
+    ],
+  },
+
+  // Página /galeria. As fotos ficam em src/content/galeria.ts.
+  galeria: {
+    kicker: "Galeria",
+    title: "O Império em fotos",
+    text: "Shows, gente bonita, cerveja gelada e petisco de boteco. Um pouco do que rola na casa de sexta a domingo.",
   },
 
   social: {

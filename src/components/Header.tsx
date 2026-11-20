@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import Link from "next/link";
 import { site } from "@/content/site";
 import { whatsappHref, external } from "@/lib/links";
 import Sobre from "./Sobre";
@@ -48,14 +49,14 @@ export default function Header() {
     <>
       <header className="site-header" data-scrolled={scrolled}>
         <div className="container header-inner">
-          <a href="#inicio" aria-label="Império do Samba — início" className="header-logo">
+          <Link href="/#inicio" aria-label="Império do Samba — início" className="header-logo">
             <img src="/assets/opt/logo-creme-280.webp" alt="Império do Samba" width={132} height={48} />
-          </a>
+          </Link>
           <nav aria-label="Principal" className="header-nav">
             {site.nav.map((l) => (
-              <a key={l.href} className="navlink" href={l.href}>
+              <Link key={l.href} className="navlink" href={l.href}>
                 {l.label}
-              </a>
+              </Link>
             ))}
             <a className="btn btn--gold btn--sm" href={confirm} {...external(confirm)}>
               {site.whatsapp.cta}
@@ -110,9 +111,9 @@ export default function Header() {
         <ul className="mobile-menu__links">
           {site.nav.map((l, i) => (
             <li key={l.href} style={{ "--i": i } as React.CSSProperties}>
-              <a href={l.href} onClick={() => setOpen(false)}>
+              <Link href={l.href} onClick={() => setOpen(false)}>
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

@@ -101,3 +101,12 @@ export function SendIcon() {
     </svg>
   );
 }
+
+export function SoundIcon({ on }: { on: boolean }) {
+  return (
+    <svg {...base(20)} stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 9.5v5h3.5L12 18V6L7.5 9.5H4z" fill="#fff" />
+      {on ? <path d="M15.5 9a4.2 4.2 0 010 6M18 6.5a7.8 7.8 0 010 11" /> : <path d="M16 9.5l5 5M21 9.5l-5 5" />}
+    </svg>
+  );
+}

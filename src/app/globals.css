@@ -531,32 +531,6 @@ a {
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.5);
   rotate: -5deg;
 }
-.hero__tag {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  padding: 14px 22px;
-  background: var(--creme);
-  color: var(--verde-noite);
-  border-radius: 14px 14px 14px 0;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
-}
-.hero__tag small {
-  display: block;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--marrom);
-}
-.hero__tag strong {
-  display: block;
-  font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 30px;
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: 0.01em;
-}
 .hero__deco-m {
   display: none;
 }
@@ -1344,19 +1318,6 @@ html:has(.sobre[open]) {
     border-width: 2.5px;
     box-shadow: 0 18px 36px rgba(0, 0, 0, 0.5);
   }
-  .hero__tag {
-    right: 12px;
-    padding: 10px 14px;
-    border-radius: 12px 12px 12px 0;
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
-  }
-  .hero__tag small {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-  }
-  .hero__tag strong {
-    font-size: 21px;
-  }
   .hero__deco-m {
     display: block;
     right: -40px;
@@ -1600,9 +1561,6 @@ html:has(.sobre[open]) {
     width: 120px;
     height: 150px;
   }
-  .hero__tag strong {
-    font-size: 18px;
-  }
 }
 
 /* ============ Ajustes do hero e da seção creme ============ */
@@ -1615,15 +1573,6 @@ html:has(.sobre[open]) {
 }
 
 /* Foto do hero, recortada no arco. */
-.hero__photo {
-  bottom: calc(var(--arc-bottom) + 12px);
-  width: calc(var(--arc-w) - 24px);
-  height: calc(var(--arc-h) - 24px);
-  object-fit: cover;
-  object-position: 50% 20%;
-  border: 1px solid rgba(199, 158, 88, 0.45);
-  box-sizing: border-box;
-}
 .info-card__hours .info-card__label {
   margin-bottom: -2px;
 }
@@ -1645,11 +1594,6 @@ html:has(.sobre[open]) {
 }
 
 @media (max-width: 767px) {
-  .hero__photo {
-    bottom: calc(var(--arc-bottom) + 8px);
-    width: calc(var(--arc-w) - 16px);
-    height: calc(var(--arc-h) - 16px);
-  }
   .hero__aviso {
     margin-top: -6px;
     text-align: center;
@@ -1664,5 +1608,254 @@ html:has(.sobre[open]) {
 @media (max-width: 767px) {
   .info-card__dates {
     font-size: 22px;
+  }
+}
+
+/* ============ Galeria (/galeria) ============ */
+.galeria {
+  padding: calc(var(--header-h) + 48px) 0 96px;
+  min-height: 100vh;
+}
+.galeria__head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 760px;
+}
+.galeria__head .lead {
+  margin-top: 10px;
+}
+.galeria__filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 36px 0 28px;
+}
+.galeria__chip {
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: 1.5px solid var(--ouro);
+  background: transparent;
+  color: var(--ouro);
+  font: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 160ms var(--ease-out),
+    background-color 200ms ease,
+    color 200ms ease;
+}
+.galeria__chip:active {
+  transform: scale(0.97);
+}
+.galeria__chip[aria-pressed="true"] {
+  background: var(--ouro);
+  color: var(--verde-noite);
+}
+.galeria__grid {
+  columns: 4;
+  column-gap: 14px;
+}
+.galeria__item {
+  display: block;
+  width: 100%;
+  margin: 0 0 14px;
+  padding: 0;
+  border: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--verde);
+  cursor: zoom-in;
+  break-inside: avoid;
+  -webkit-tap-highlight-color: transparent;
+}
+.galeria__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 400ms var(--ease-out);
+}
+.galeria__item:focus-visible {
+  outline: 2px solid var(--ouro);
+  outline-offset: 3px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .galeria__item:hover img {
+    transform: scale(1.04);
+  }
+}
+
+html:has(.lightbox[open]) {
+  overflow: hidden;
+}
+.lightbox {
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 16px 16px 84px;
+  border: 0;
+  background: transparent;
+  overflow: hidden;
+}
+.lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox::backdrop {
+  background: rgba(6, 16, 11, 0.94);
+}
+.lightbox__img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+}
+.lightbox__bar {
+  position: absolute;
+  inset: auto 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.lightbox__count {
+  min-width: 64px;
+  text-align: center;
+  color: var(--creme);
+  font-variant-numeric: tabular-nums;
+}
+.lightbox__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(13, 35, 24, 0.8);
+}
+@media (max-width: 1239px) {
+  .galeria__grid {
+    columns: 3;
+  }
+}
+@media (max-width: 767px) {
+  .galeria {
+    padding: calc(var(--header-h) + 24px) 0 72px;
+  }
+  .galeria__grid {
+    columns: 2;
+    column-gap: 10px;
+  }
+  .galeria__item {
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .galeria__item img {
+    transition: none;
+  }
+}
+
+/* Botão de som do celular */
+.phone__sound {
+  position: absolute;
+  top: 88px;
+  right: 12px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 160ms var(--ease-out);
+}
+.phone__sound:active {
+  transform: scale(0.94);
+}
+.phone__sound:focus-visible {
+  outline: 2px solid var(--ouro);
+  outline-offset: 2px;
+}
+@media (max-width: 767px) {
+  .phone__sound {
+    top: 34px;
+    right: 10px;
+  }
+}
+
+/* ============ Hero: fotos da casa ============ */
+.hero__visual {
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.hero__collage {
+  position: relative;
+  width: min(480px, 100%);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.hero__collage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
+  border-radius: 22px;
+  border: 1.5px solid rgba(199, 158, 88, 0.6);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.4);
+}
+.hero__collage img:first-child {
+  grid-column: span 2;
+  aspect-ratio: 3 / 2;
+}
+.hero__convite {
+  position: absolute;
+  left: 50%;
+  top: 51.6%;
+  translate: -50% -50%;
+  rotate: -2deg;
+  margin: 0;
+  width: max-content;
+  max-width: 96%;
+  padding: 12px 22px;
+  border-radius: 14px;
+  background: var(--creme);
+  color: var(--verde-noite);
+  font-family: var(--font-fraunces), serif;
+  font-weight: 900;
+  font-size: 23px;
+  line-height: 1.15;
+  text-align: center;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+}
+@media (max-width: 767px) {
+  .hero__visual {
+    height: auto;
+  }
+  .hero__collage {
+    max-width: 360px;
+    gap: 10px;
+  }
+  .hero__collage img {
+    border-radius: 16px;
+  }
+  .hero__convite {
+    font-size: 17px;
+    padding: 9px 14px;
+    border-radius: 12px;
   }
 }
