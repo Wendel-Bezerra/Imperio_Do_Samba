@@ -75,9 +75,9 @@ export const site = {
     title: "Venha pro melhor samba da cidade",
     cta: "Conheça nossa galeria",
     photos: [
-      { img: "convite-samba", widths: [640, 1280], w: 1280, h: 853, sizes: "(max-width: 767px) 92vw, 480px", alt: "Músicos da mesa de samba tocando ao vivo no palco" },
-      { img: "convite-modelo", widths: [480, 900], w: 900, h: 1353, sizes: "(max-width: 767px) 46vw, 240px", alt: "Cliente sorrindo com um drink na mão, em frente ao painel Império" },
-      { img: "convite-chope", widths: [480, 900], w: 900, h: 1350, sizes: "(max-width: 767px) 46vw, 240px", alt: "Copo de chope Império gelado no balcão, com as luzes da casa ao fundo" },
+      { img: "convite-modelo", widths: [480, 900], w: 900, h: 1353, sizes: "(max-width: 767px) 31vw, 180px", alt: "Cliente sorrindo com um drink na mão, em frente ao painel Império" },
+      { img: "convite-chope", widths: [480, 900], w: 900, h: 1350, sizes: "(max-width: 767px) 31vw, 180px", alt: "Copo de chope Império gelado no balcão, com as luzes da casa ao fundo" },
+      { img: "convite-samba", widths: [640, 1280], w: 1280, h: 853, sizes: "(max-width: 767px) 93vw, 540px", alt: "Músicos da mesa de samba tocando ao vivo no palco" },
     ],
   },
 
